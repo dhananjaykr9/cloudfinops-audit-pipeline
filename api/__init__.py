@@ -1,1 +1,1 @@
-"""API package for CloudFinOps on-demand audit service."""
+"""API package for Cloud Infrastructure Cost Audit service."""

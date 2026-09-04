@@ -1,4 +1,4 @@
-# CloudFinOps — Cloud Infrastructure Cost Audit Pipeline
+# Cloud Infrastructure Cost Audit Pipeline
 
 ## Project Overview
 
@@ -20,9 +20,9 @@ The AI audit uses **Server-Sent Events (SSE)** to stream progress updates such a
 ## Architecture
 
 ```text
-                         CLOUD FINOPS SYSTEM
-                                  │
-                 ┌────────────────┴────────────────┐
+                     CLOUD COST AUDIT SYSTEM
+                                │
+               ┌────────────────┴────────────────┐
                  │                                 │
                  ▼                                 ▼
           KNOWLEDGE PIPELINE                 COST ANALYSIS

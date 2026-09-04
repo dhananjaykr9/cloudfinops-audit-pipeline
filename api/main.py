@@ -1,5 +1,5 @@
 """
-FastAPI Application Entry Point — CloudFinOps AI Infrastructure Cost Audit API.
+FastAPI Application Entry Point — Cloud Infrastructure Cost Audit API.
 """
 
 import os
@@ -17,7 +17,7 @@ from qdrant.vector_store import get_vector_store
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup: ensure Qdrant collection is ready
-    print("[API] Starting CloudFinOps API...")
+    print("[API] Starting Cloud Infrastructure Cost Audit API...")
     try:
         vs = get_vector_store()
         vs.init_collection(recreate=False)
@@ -25,11 +25,11 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         print(f"[API] Warning: Could not verify Qdrant at startup: {e}")
     yield
-    print("[API] Shutting down CloudFinOps API...")
+    print("[API] Shutting down Cloud Infrastructure Cost Audit API...")
 
 
 app = FastAPI(
-    title="CloudFinOps — Cloud Infrastructure Cost Audit API",
+    title="Cloud Infrastructure Cost Audit API",
     description="Beginner-friendly AI Engineering solution for AWS cloud cost auditing.",
     version="1.0.0",
     lifespan=lifespan,
@@ -43,13 +43,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(audit_router, tags=["FinOps Audit"])
+app.include_router(audit_router, tags=["Cost Audit"])
 
 
 @app.get("/")
 def root():
     return {
-        "service": "CloudFinOps API",
+        "service": "Cloud Infrastructure Cost Audit API",
         "status": "online",
         "endpoints": {
             "audit": "POST /audit",
