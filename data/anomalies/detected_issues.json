@@ -1,0 +1,44 @@
+[
+  {
+    "resource_id": "i-101",
+    "resource_type": "EC2",
+    "issue_type": "IDLE_RESOURCE",
+    "monthly_cost": 85.0
+  },
+  {
+    "resource_id": "i-103",
+    "resource_type": "EC2",
+    "issue_type": "IDLE_RESOURCE",
+    "monthly_cost": 140.0
+  },
+  {
+    "resource_id": "vol-202",
+    "resource_type": "EBS",
+    "issue_type": "ORPHANED_STORAGE",
+    "monthly_cost": 18.0
+  },
+  {
+    "resource_id": "vol-203",
+    "resource_type": "EBS",
+    "issue_type": "ORPHANED_STORAGE",
+    "monthly_cost": 9.0
+  },
+  {
+    "resource_id": "vol-201",
+    "resource_type": "EBS",
+    "issue_type": "LEGACY_STORAGE",
+    "monthly_cost": 120.0
+  },
+  {
+    "resource_id": "vol-204",
+    "resource_type": "EBS",
+    "issue_type": "LEGACY_STORAGE",
+    "monthly_cost": 80.0
+  },
+  {
+    "resource_id": "vol-206",
+    "resource_type": "EBS",
+    "issue_type": "LEGACY_STORAGE",
+    "monthly_cost": 56.0
+  }
+]
