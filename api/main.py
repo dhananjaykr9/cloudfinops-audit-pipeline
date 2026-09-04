@@ -1,12 +1,7 @@
-"""
-FastAPI Application Entry Point — Cloud Infrastructure Cost Audit API.
-"""
-
-import os
 from contextlib import asynccontextmanager
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -16,21 +11,16 @@ from qdrant.vector_store import get_vector_store
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup: ensure Qdrant collection is ready
-    print("[API] Starting Cloud Infrastructure Cost Audit API...")
     try:
-        vs = get_vector_store()
-        vs.init_collection(recreate=False)
-        print("[API] Qdrant collection verified.")
+        get_vector_store().init_collection(recreate=False)
     except Exception as e:
-        print(f"[API] Warning: Could not verify Qdrant at startup: {e}")
+        print(f"Warning: Could not connect to Qdrant on startup: {e}")
     yield
-    print("[API] Shutting down Cloud Infrastructure Cost Audit API...")
 
 
 app = FastAPI(
     title="Cloud Infrastructure Cost Audit API",
-    description="Beginner-friendly AI Engineering solution for AWS cloud cost auditing.",
+    description="AWS cloud cost auditing pipeline.",
     version="1.0.0",
     lifespan=lifespan,
 )
