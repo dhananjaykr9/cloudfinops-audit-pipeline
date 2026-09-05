@@ -13,7 +13,29 @@ The project contains two main workflows:
 
 The project uses **dense and sparse search together as a simple hybrid search approach**. Dense embeddings provide semantic matching, while sparse search helps match AWS-specific terms such as `gp2`, `gp3`, `EBS`, and `RDS`.
 
-The AI audit uses **Server-Sent Events (SSE)** to stream progress updates such as `"Searching..."` and `"Generating recommendation..."`.
+The AI audit uses **Server-Sent Events (SSE)** to stream progress updates such as `"Searching..."` and `"Generating recommendation..."`, and displays them on an interactive pure-Python **Streamlit dashboard**.
+
+---
+
+## Screenshots
+
+### 1. Interactive FinOps Audit Dashboard (Streamlit)
+![Streamlit Cost Audit Dashboard](screenshots/streamlit_dashboard.png)
+
+### 2. Batch Pipeline Orchestration (Apache Airflow)
+![Airflow DAGs Overview](screenshots/airflow_dags.png)
+
+#### Knowledge Indexing DAG Task Run
+![Airflow Knowledge Indexing DAG](screenshots/airflow_knowledge_dag.png)
+
+#### Weekly Usage Detector DAG Task Run
+![Airflow Weekly Usage Detector DAG](screenshots/airflow_detector_dag.png)
+
+### 3. Hybrid Search Vector Store (Qdrant)
+![Qdrant Collection](screenshots/qdrant_dashboard.png)
+
+### 4. Interactive API Documentation (FastAPI & Swagger UI)
+![FastAPI Swagger UI](screenshots/fastapi_docs.png)
 
 ---
 
@@ -63,7 +85,7 @@ The AI audit uses **Server-Sent Events (SSE)** to stream progress updates such a
                                              SSE Streaming
                                                    │
                                                    ▼
-                                            AI Audit Result
+                                         Streamlit Dashboard
 ```
 
 ---
@@ -71,6 +93,7 @@ The AI audit uses **Server-Sent Events (SSE)** to stream progress updates such a
 ## Tech Stack
 
 * **Language**: Python 3.11+
+* **Frontend Dashboard**: Streamlit
 * **Data Processing**: Pandas
 * **API Framework**: FastAPI & Uvicorn
 * **Schema Validation**: Pydantic v2
@@ -123,10 +146,17 @@ cloudfinops/
 │   ├── documents/
 │   └── usage_reports/
 │
+├── screenshots/
+│   ├── streamlit_dashboard.png
+│   ├── airflow_dags.png
+│   ├── airflow_knowledge_dag.png
+│   ├── airflow_detector_dag.png
+│   ├── qdrant_dashboard.png
+│   └── fastapi_docs.png
+│
+├── app.py
 ├── docker-compose.yaml
-│
 ├── requirements.txt
-│
 └── README.md
 ```
 
@@ -211,3 +241,10 @@ uvicorn api.main:app --reload --port 8000
 ```
 - API Docs: `http://localhost:8000/docs`
 - Audit Endpoint: `POST http://localhost:8000/audit`
+
+### 3. Start Streamlit Dashboard
+```bash
+streamlit run app.py
+```
+- Web UI: `http://localhost:8501`
+
