@@ -1,0 +1,11 @@
+resource_id,resource_type,instance_type,monthly_cost,cpu_utilization,storage_type,storage_size_gb,days_unattached
+i-101,EC2,t3.large,85.0,3.2,,,
+i-102,EC2,t3.medium,40.0,35.5,,,
+i-103,EC2,m5.xlarge,140.0,4.1,,,
+i-104,EC2,c5.large,70.0,72.0,,,
+vol-201,EBS,,120.0,,gp2,1000,
+vol-202,EBS,,18.0,,,200,21
+vol-203,EBS,,9.0,,gp3,100,30
+vol-204,EBS,,80.0,,gp2,800,
+vol-205,EBS,,40.0,,gp3,400,
+vol-206,EBS,,56.0,,gp2,560,
